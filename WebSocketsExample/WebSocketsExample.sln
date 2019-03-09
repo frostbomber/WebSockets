@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28705.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketClient", "WebSocketClient\WebSocketClient.csproj", "{D64928BA-951F-4959-BC35-2EB9A9A0FB45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketServer", "WebSocketServer\WebSocketServer.csproj", "{6ED010CA-A47D-452E-8CDD-76CB9E72D00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocket.Common", "WebSocket.Common\WebSocket.Common.csproj", "{34FA2128-88EA-42FF-B59C-C899E1E73E30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D64928BA-951F-4959-BC35-2EB9A9A0FB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64928BA-951F-4959-BC35-2EB9A9A0FB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64928BA-951F-4959-BC35-2EB9A9A0FB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64928BA-951F-4959-BC35-2EB9A9A0FB45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED010CA-A47D-452E-8CDD-76CB9E72D00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED010CA-A47D-452E-8CDD-76CB9E72D00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED010CA-A47D-452E-8CDD-76CB9E72D00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED010CA-A47D-452E-8CDD-76CB9E72D00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FA2128-88EA-42FF-B59C-C899E1E73E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FA2128-88EA-42FF-B59C-C899E1E73E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FA2128-88EA-42FF-B59C-C899E1E73E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FA2128-88EA-42FF-B59C-C899E1E73E30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {554075A6-6036-4EE2-8579-3D0444051517}
+	EndGlobalSection
+EndGlobal

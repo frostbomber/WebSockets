@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WebSocketsExample/WebSocketServer/bin/Debug/netcoreapp3.0
+/WebSocketsExample/WebSocketServer/obj
+/WebSocketsExample/WebSocketClient/obj
+/WebSocketsExample/WebSocketClient/bin/Debug/netcoreapp3.0
+/WebSocketsExample/WebSocket.Common/bin/Debug/netcoreapp3.0
+/WebSocketsExample/WebSocket.Common/obj
+/WebSocketsExample/.vs/WebSocketsExample/v16
