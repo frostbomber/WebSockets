@@ -31,6 +31,10 @@ namespace WebSocketCommon.Services.Commands
                 List<object[]> values = await _DataService.ExecuteReaderAsync(dbCommand);
                 cmdResponse.Data = values.Select(a => string.Join(" ", a.Skip(1))).ToArray();
             }
+            else
+            {
+                Console.Write($"Received request at {DateTime.Now}");
+            }
             return cmdResponse;
         }
     }

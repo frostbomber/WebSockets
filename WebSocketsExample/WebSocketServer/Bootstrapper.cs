@@ -41,7 +41,7 @@ namespace WebSocketServer
         public void Run()
         {
             // Configure Data Service
-            _Services.GetRequiredService<IDataService>().SetConnectionString(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Northwind;Data Source=localhost\SQLEXPRESS");
+            _Services.GetRequiredService<IDataService>().SetConnectionString(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True");
         }
     }
 }

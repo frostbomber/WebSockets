@@ -9,3 +9,8 @@
 /WebSocketsExample/WebSocket.Common/bin/Debug/netcoreapp3.0
 /WebSocketsExample/WebSocket.Common/obj
 /WebSocketsExample/.vs/WebSocketsExample/v16
+/WebSocketsExample/.vs/WebSocketsExample/v15
+/WebSocketsExample/.vscode
+/WebSocketsExample/WebSocket.Common/bin/Debug/netcoreapp2.1
+/WebSocketsExample/WebSocketClient/bin/Debug/netcoreapp2.1
+/WebSocketsExample/WebSocketServer/bin/Debug/netcoreapp2.1

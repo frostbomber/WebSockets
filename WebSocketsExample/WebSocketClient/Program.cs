@@ -26,7 +26,7 @@ namespace WebSocketClient
 
             Console.WriteLine("Client Start");
             Application myApp = new Application(serviceCollection.BuildServiceProvider());
-            myApp.Run();
+            //myApp.Run();
 
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -44,6 +44,21 @@ namespace WebSocketClient
             _Services = serviceProvider;
             _Logger = _Services.GetService<ILoggerFactory>().CreateLogger<Application>();
             _SocketService = _Services.GetRequiredService<ISocketService>();
+        }
+
+        public async void RunMsTimer()
+        {
+            ClientWebSocket cws = new ClientWebSocket();
+            await cws.ConnectAsync(new Uri("ws://localhost:5000/ws"), new CancellationToken());
+
+            Command cmd = new Command()
+            {
+                CommandId = 4,
+                CommandType = "Timertest"
+            };
+
+            await _SocketService.SendCommandAsync(cmd, cws, new CancellationToken());
+            var cmdResponse = await _SocketService.RecieveCommandAsync(null, cws, new CancellationToken());
         }
 
         public async void Run()
