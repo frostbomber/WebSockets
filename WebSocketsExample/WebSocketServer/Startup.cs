@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using WebSocketCommon.Services.Commands;
 using WebSocketCommon.Services.Data;
 using WebSocketCommon.Services.Socket;
+using WebSocketCommon.Services.Timer;
 
 namespace WebSocketServer
 {
@@ -20,6 +21,7 @@ namespace WebSocketServer
             // Configure Services
             services.AddSingleton<IDataService, DataService>()
                     .AddSingleton<ICommandService, CommandService>()
+                    .AddSingleton<ITimerService, TimerService>()
                     .AddTransient<ISocketService, SocketService>()
                     .AddLogging(options =>
                     {

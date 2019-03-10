@@ -97,7 +97,8 @@ namespace WebSocketCommon.Services.Timer
 
         private void MMTimer_TimerCompleted(object sender, EventArgs e)
         {
-            Console.WriteLine($"MMTimer {id.ToString()} completed at {DateTime.Now.Ticks}");
+            Console.WriteLine(DateTime.Now.Millisecond);
+            Dispose();
         }
 
         /// <summary>
@@ -134,7 +135,7 @@ namespace WebSocketCommon.Services.Timer
                 id = timeSetEvent(ms, 0, thisCB, UIntPtr.Zero, (uint)f);
                 if (id == 0)
                     throw new Exception("timeSetEvent error");
-                Console.WriteLine($"MMTimer {id.ToString()} started at {DateTime.Now.Ticks}");
+                Console.WriteLine(DateTime.Now.Millisecond);
             }
         }
 

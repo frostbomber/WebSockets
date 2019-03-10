@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WebSocketCommon.Services.Data;
+using WebSocketCommon.Services.Timer;
 using WebSocketServer.Model;
 
 namespace WebSocketCommon.Services.Commands
@@ -13,11 +14,13 @@ namespace WebSocketCommon.Services.Commands
     {
         ILogger _Logger { get; set; }
         IDataService _DataService { get; set; }
+        public ITimerService _TimerService { get; set; }
 
         public CommandService(IServiceProvider serviceProvider)
         {
             _Logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger<CommandService>();
             _DataService = serviceProvider.GetRequiredService<IDataService>();
+            _TimerService = serviceProvider.GetRequiredService<ITimerService>();
         }
 
         public async Task<CommandResponse> InvokeCommandAsync(Command cmd)
@@ -31,9 +34,9 @@ namespace WebSocketCommon.Services.Commands
                 List<object[]> values = await _DataService.ExecuteReaderAsync(dbCommand);
                 cmdResponse.Data = values.Select(a => string.Join(" ", a.Skip(1))).ToArray();
             }
-            else
+            else if (string.Compare(cmd.CommandType, "TimerTest", true) == 0)
             {
-                Console.Write($"Received request at {DateTime.Now}");
+                _TimerService.TestTimer();
             }
             return cmdResponse;
         }

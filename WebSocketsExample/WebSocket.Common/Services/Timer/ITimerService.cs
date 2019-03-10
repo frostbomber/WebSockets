@@ -6,5 +6,6 @@ namespace WebSocketCommon.Services.Timer
 {
     public interface ITimerService
     {
+        void TestTimer();
     }
 }
