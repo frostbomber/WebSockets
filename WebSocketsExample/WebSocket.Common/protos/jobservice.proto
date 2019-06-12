@@ -1,0 +1,76 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+
+package scheduling;
+
+// Interface exported by the server.
+service JobService {
+  //Client queries server for (server-side) status of a Job
+  rpc QueryJobs(stream Job) returns (stream JobStatus) {}
+
+  //Client requests Jobs from a server
+  //Uses a "pull" instead of "push"
+  rpc RequestJobs() returns (stream Job) {}
+
+  //Client streams a series of statistics to server
+  //Server replies once the stream ends with a summary
+  rpc ReportStatistics(stream Statistic) returns (StatisticSummary) {}
+
+  //Client streams a series of job status' to server
+  //Server replies once the stream ends with a summary
+  rpc ReportJobStatus(stream JobStatus) returns (JobStatusSummary) {}
+}
+
+enum Status {
+  PRE_EXECUTION = 0;
+  EXECUTING = 1;
+  SUCCEEDED = 2;
+  FAILED = 3;
+  CANCELED = 4;
+}
+
+// JobStatus represents the Status of a Job
+// UUID is present to allow the JobStatus to be traced back to a Job
+// A Job will always have a JobStatus
+message JobStatus {
+  int64 UUID = 1;
+  Status status = 2;
+  float peakmem = 3;
+  float cputime = 4;
+  float usertime = 5;
+}
+
+message Job {
+  JobStatus status = 1;
+  bytes payload = 2;
+}
+
+message Statistic {
+  float cpu = 1;
+  float memory = 2;
+  float disk = 3;
+  float network = 4; 
+  fixed64 ticks = 5;
+}
+
+message StatisticSummary {
+  bool stats = 1;
+}
+
+message JobStatusSummary {
+  repeated int64 jobids = 1;
+}
